@@ -2,18 +2,27 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Image, TouchableOpacity, Text, View } from 'react-native';
 import { styles } from './styles';
-import { openImagePickerAsync } from './components/image-picker';
+import { openImagePickerAsync, openShareDialogAsync } from './utils';
 
 export default function App() {
 
   const [selectedImage, setImage] = React.useState(null);
 
   if (selectedImage !== null) {
+
+    // if we want to build up attributes before adding to an element
+    let attrs = {};
+    attrs['onPress'] = openShareDialogAsync.bind(this, selectedImage.localUri);
+    attrs['style'] = styles.button;
+
     return (
       <View style={styles.container}>
         <Image
           source={{ uri: selectedImage.localUri }}
           style={styles.thumbnail} />
+        <TouchableOpacity {...attrs}>
+          <Text style={styles.buttonText}>Share this photo</Text>
+        </TouchableOpacity>
       </View>
     )
   }
