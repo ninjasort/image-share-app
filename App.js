@@ -23,6 +23,9 @@ export default function App() {
         <TouchableOpacity {...attrs}>
           <Text style={styles.buttonText}>Share this photo</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={{marginTop: 20}} onPress={() => setImage(null)}>
+          <Text style={{fontSize: 20}}>Go Back</Text>
+        </TouchableOpacity>
       </View>
     )
   }
