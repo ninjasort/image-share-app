@@ -2,7 +2,7 @@
 
 > A simple share app built with React Native and Expo
 
-![Cover](assets/cover-img.png)
+![Cover](./assets/cover-img.png)
 
 ## Installation
 
